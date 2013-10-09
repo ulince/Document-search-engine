@@ -1,5 +1,6 @@
 package src;
 
+import persistencia.Query;
 import java.sql.*;
 
 /**

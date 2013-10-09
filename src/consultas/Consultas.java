@@ -5,7 +5,7 @@
 package consultas;
 
 import src.Operaciones;
-import src.Query;
+import persistencia.Query;
 
 
 /**

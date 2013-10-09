@@ -1,5 +1,6 @@
 package src;
 
+import persistencia.Query;
 import java.sql.*;
 import java.util.Arrays;
 
@@ -41,8 +42,8 @@ public class Operaciones {
     }
 
     //Calcula la distancia entre una consulta y todos los documentos usando representaciones mejoradas
-    //result[0] corresponde al documento 1, result[1] corresponde al documento 2...
-    //el parametro medida se refiere a la medida de similitud que se empleara
+    //result[0] corresponde ala distancia con documento 1, result[1] corresponde al documento 2...
+    //el parametro medida se refiere a la medida de similitud que se empleará
     public Query[] SimDocConsRepMej(String medida){
         DBConnection db = new DBConnection();
         Query result[] = new Query[10];
@@ -60,10 +61,5 @@ public class Operaciones {
                 return result;
             }
         }
-    
-    
-    
-    
-    
     }
 
