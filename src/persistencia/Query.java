@@ -8,7 +8,7 @@ package persistencia;
  *
  * @author Me
  */
-public class Query {
+public class Query implements Comparable<Query>{
     private String uri;
     private String raiz;
     private float frecuencia;
@@ -46,4 +46,19 @@ public class Query {
     public void setFrecuencia(float frecuencia) {
         this.frecuencia = frecuencia;
     }    
+    
+    public int compareTo(Query query){
+        if(getFrecuencia() < query.getFrecuencia()){
+            return -1;
+        }
+         if(getFrecuencia() == query.getFrecuencia()){
+            return 0;
+        }
+          if(getFrecuencia() > query.getFrecuencia()){
+            return 1;
+        }
+        return 0;
+
+    }
+    
 }
