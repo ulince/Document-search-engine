@@ -249,4 +249,51 @@ public class DBConnection {
             }
         }
     }
+    
+    /*Práctica 1*/
+    //Este metodo inserta los términos en la tabla termino.
+        public void Insert(String str) throws SQLException {
+		try {
+			conn = DriverManager.getConnection(myUrl, "root", "admin");
+			// the mysql insert statement
+			String query = " insert into termino (raíz)" + " values (?)";
+
+			// create the mysql insert preparedstatement
+			PreparedStatement preparedStmt = conn.prepareStatement(query);
+			preparedStmt.setString(1, str);
+			// execute the preparedstatement
+			preparedStmt.execute();
+
+			conn.close();
+		} catch (Exception e) {
+			//System.err.println("Got an exception!");
+			//System.err.println(e.getMessage());
+		} finally {
+			conn.close();
+		}
+	}
+	
+	//Este método inserta los términos en la tabla frecuencia, o si ya existe en ese ddocumento, 
+        //incrementa la frecuencia
+        public void Insert(String query, String str1, String str2) throws SQLException {
+		try {
+			conn = DriverManager.getConnection(myUrl, "root", "admin");
+			// the mysql insert statement
+			//String query = "insert into frecuencia (uri, raíz)" + " values (?,?)";
+
+			// create the mysql insert preparedstatement
+			PreparedStatement preparedStmt = conn.prepareStatement(query);
+			preparedStmt.setString(1, str1);
+			preparedStmt.setString(2, str2);
+			// execute the preparedstatement
+			preparedStmt.execute();
+
+		
+		} catch (Exception e) {
+			//System.err.println("Got an exception!");
+			//System.err.println(e.getMessage());
+		} finally {
+			conn.close();
+		}
+	}
 }
